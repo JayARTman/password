@@ -13,7 +13,7 @@ function generatePassword() {
   var lengthChar = window.prompt("How many characters will your password be?");
   lengthChar = parseInt(lengthChar);
   if (lengthChar < 8 || lengthChar > 128) {
-    alert("Please enter a password length between 8 and 128")
+    alert("Please enter a password length between 8 and 128 characters.")
     return;
   }
   console.log(lengthChar);
@@ -29,7 +29,7 @@ function generatePassword() {
 
   var yesSymbol = confirm("Would you like to include symbols?");
   console.log(yesSymbol);
-  
+
 var finalLower = lower [Math.random(Math.floor)];
 var finalUpper = upper [Math.random(Math.floor)];
 var finalNumber = numbers [Math.random(Math.floor)];
