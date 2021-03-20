@@ -1,28 +1,17 @@
 // Assignment code here
+console.clear();
+
 
 //var getRandomSync =
+var getRandomUpper String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+var getRandomUpper String.fromCharCode(Math.floor(Math.Random() * 26) + 65);
+var getRandomNumber String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+var getRandomSymbol const symbols = "!@#$%^&*(){}[]=<>/,." [Math.floor(Math.random() * symbols.length)];
 
-function getRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-
-function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.Random() * 26) + 65);
-}
-
-function getRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-
-function getRandomSymbol() {
-  const symbols = "!@#$%^&*(){}[]=<>/,.";
-  return symbols [Math.floor(Math.random() * symbols.length)];
-}
+console.log(getRandomNumber)
 
 
 
-
-function getRand
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
