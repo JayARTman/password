@@ -19,15 +19,23 @@ function generatePassword() {
   console.log(lengthChar);
 
   var yesLowercase = confirm("Would you like to include lower case letters?");
+  console.log(yesLowercase);
+
   var yesUppercase = confirm("Would you like to include upper case letters?");
+  console.log(yesUpperCase);
+
   var yesNumber = confirm("Would you like to include numbers?");
+  console.log(yesNumber);
+
   var yesSymbol = confirm("Would you like to include symbols?");
+  console.log(yesSymbol);
   
-  //return value
-  //var password = "";
-  //for (var i = 0; i < length; i++) {
-  //picks a character within charSet at index of random number
-  //password += charSet.charAt(Math.floor(Math.random() * charSet.length));
+var finalLower = lower [Math.random(Math.floor)];
+var finalUpper = upper [Math.random(Math.floor)];
+var finalNumber = numbers [Math.random(Math.floor)];
+var finalSymbol = symbols [Math.random(Math.floor)];
+
+return generatePassword
 };
 
 // Get references to the #generate element
