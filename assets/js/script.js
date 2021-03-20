@@ -8,15 +8,32 @@
 //Use Math.random with floor to determine what to pick
 //
 //Send password to #password
+var length = prompt("How many characters will your password be? Min characters 8 max 128");
+var charType = prompt("Enter a character type: symbol, number, upper, lowercase");
+var symbol = prompt("Would you like to include symbols");
+var num = prompt("Would you like to include numbers?");
+var upper = prompt("would you like to include capital letters");
 
 function generate(){
-var charset ="abcdefghijklmnopqrstuvABCDEFGHIJKLMNOPQRSTUV123456789!@#$%^&*";
-var passwordLength = 20;
-var password="";
-for (var i=0; i<passwordLength;i++){
-  var random = Math.floor(Math.random() * charset.length);
-  password += charset.substring(random,random + 1);
+var charSet = "";
+  var charTypeLower = charType.toLowerCase();
+  if( charTypeLower === "lowercase" ) {
+    charSet = "abcdefghijklmnopqrstuvwxyz";
+  } else if( charTypeLower === "uppercase" ) {
+    charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  } else if( charTypeLower === "numeric" ) {
+    charSet = "0123456789";
+  } else if( charTypeLower === "special" ) {
+    charSet = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  } 
+
+  //return value
+  var password = "";
+  for (var i = 0; i < length; i++) {
+    //picks a character within charSet at index of random number
+    password += charSet.charAt(Math.floor(Math.random() * charSet.length));
 }
+
 }
 
 // Get references to the #generate element
