@@ -1,21 +1,33 @@
 // Assignment code here
+var generateBtn = document.querySelector("#generate");
 
+//var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
 //Possible Character
-var lower = ('"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"');
-var upper = ('"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"');
-var numbers = ('"0","1","2","3","4","5","6","7","8","9"');
-var symbol = ('"!","\",""","#","$","%","&"');
+var lower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var upper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var number = ["0","1","2","3","4","5","6","7","8","9"];
+var symbol = ["!","#","$","%","&"];
 
 var allChar = [];
-
+var allPassword = "";
 //Start Function
 function generatePassword() {
   //Start prompts
+  allPassword = "";
   var lengthChar = window.prompt("How many characters will your password be?");
-  lengthChar = parseInt(lengthChar);
   if (lengthChar < 8 || lengthChar > 128) {
-    alert("Please enter a password length between 8 and 128 characters.")
-    return;
+    lengthChar = parseInt(lengthChar);
+    alert("Please enter a password length between 8 and 128 characters.");
+    //return;
   }
 
   console.log(lengthChar);
@@ -34,48 +46,59 @@ function generatePassword() {
 
   var charOptions = {
     lengthChar: lengthChar,
+    yesLowercase: yesLowercase,
     yesUppercase: yesUppercase,
     yesNumber: yesNumber,
     yesSymbol: yesSymbol
   }
+console.log(charOptions);
+ //return charOptions;
+ 
+  if(charOptions.yesLowercase) {
+    allChar = allChar.concat(lower);
+    var chars = lower[Math.floor(Math.random() * lower.length)];
+    allPassword = allPassword + chars;
+    console.log(chars);
+    console.log(allPassword);
+  }
 
-  return generatePassword;
+  if(charOptions.yesUppercase) {
+    allChar = allChar.concat(upper);
+    var chars = upper[Math.floor(Math.random() * upper.length)];
+    allPassword = allPassword + chars;
+  }
 
-  if(options.yesLowercase){
-    getRandom(lower);
-  }
-  if(options.yesUppercase){
-    getRandom(upper);
-  }
-  if(options.yesNumber){
-    getRandom(numbers);
-  }
-  if(options.yesSymbol){
-    getRandom(symbol);
+  if(charOptions.yesNumber) {
+    allChar = allChar.concat(number);
+    var chars = number[Math.floor(Math.random() * number.length)];
+    allPassword = allPassword + chars;
+
+  }  
+  
+    if(charOptions.yesSymbol) {
+     allChar = allChar.concat(symbol);
+     var chars = symbol[Math.floor(Math.random() * symbol.length)];
+    allPassword = allPassword + chars;
   }
   
+  console.log(allChar);
+  console.log(allPassword);
   
-  
+  var remaining = lengthChar - allPassword.length;
+  console.log(remaining);
 
+  for (var i = 0; i < remaining; i++){
+    allPassword += allChar[Math.floor(Math.random() * allChar.length)];
+    console.log("password:", allPassword);
+  }
 
-
-
-return generatePassword
+  return allPassword;
 };
+  
+  
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
 
-//var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
