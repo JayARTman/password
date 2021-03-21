@@ -10,19 +10,21 @@ var allChar = [];
 
 //Start Function
 function generatePassword() {
+  //Start prompts
   var lengthChar = window.prompt("How many characters will your password be?");
   lengthChar = parseInt(lengthChar);
   if (lengthChar < 8 || lengthChar > 128) {
     alert("Please enter a password length between 8 and 128 characters.")
     return;
   }
+
   console.log(lengthChar);
 
   var yesLowercase = confirm("Would you like to include lower case letters?");
   console.log(yesLowercase);
 
   var yesUppercase = confirm("Would you like to include upper case letters?");
-  console.log(yesUpperCase);
+  console.log(yesUppercase);
 
   var yesNumber = confirm("Would you like to include numbers?");
   console.log(yesNumber);
@@ -30,10 +32,33 @@ function generatePassword() {
   var yesSymbol = confirm("Would you like to include symbols?");
   console.log(yesSymbol);
 
-var finalLower = lower [Math.random(Math.floor)];
-var finalUpper = upper [Math.random(Math.floor)];
-var finalNumber = numbers [Math.random(Math.floor)];
-var finalSymbol = symbols [Math.random(Math.floor)];
+  var charOptions = {
+    lengthChar: lengthChar,
+    yesUppercase: yesUppercase,
+    yesNumber: yesNumber,
+    yesSymbol: yesSymbol
+  }
+
+  return generatePassword;
+
+  if(options.yesLowercase){
+    getRandom(lower);
+  }
+  if(options.yesUppercase){
+    getRandom(upper);
+  }
+  if(options.yesNumber){
+    getRandom(numbers);
+  }
+  if(options.yesSymbol){
+    getRandom(symbol);
+  }
+  
+  
+  
+
+
+
 
 return generatePassword
 };
